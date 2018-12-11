@@ -20,5 +20,12 @@ describe "BucketOf tests" do
       grape_bucket.add(1)
       expect(grape_bucket.count).to eq(2)
     end
+
+    it 'can add more than 1 grape at a time' do
+      grape_bucket = BucketOf.new(@grape)
+      grape_bucket.add(2)
+      
+      expect(grape_bucket.count).to eq(3)
+    end
   end
 end
