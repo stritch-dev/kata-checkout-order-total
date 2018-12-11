@@ -6,17 +6,18 @@ class Cart
     items = Array.new
     discounts = Array.new
     #  item -> quantity
-    @items = Hash.new {0} 
+    @items = Array.new
     @discounts = Array.new
     @total = 0
   end
 
   def add_item(item)
-    if (@items.has_key? item)
-      @items[item]
-    else
-      @items[item] = @items[item] +  1  
-    end
+    # if (@items.has_key? item)
+      # @items[item]
+    # else
+      # @items[item] = @items[item] +  1  
+    # end
+    @items << item
   end
 
   def items
@@ -48,6 +49,11 @@ class Cart
     calculate_total
     @total
   end
+
+  def count_item(item_name)
+    items.count(item_name)
+  end 
+
 end
 
 

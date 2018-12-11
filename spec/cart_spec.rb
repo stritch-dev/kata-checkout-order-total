@@ -24,7 +24,7 @@ describe "Cart tests" do
   end
 
   describe '#total' do
-   it 'returns the total price of all items with adjusted prices if applicable ' do
+   it 'returns the total price of all items when no discounts are available ' do
     apple = Item.new( "apple",  1.11, "weight")
     banana = Item.new( "banana",  0.69, "each")
     cantaloupe = Item.new("cantaloupe", 3.20, "each")
@@ -39,14 +39,25 @@ describe "Cart tests" do
   end
 
   describe '#buy one get one' do
-    xit 'returns the proper price for 1 grape' do
-     grape = Item.new(:grape, 1.00, "each")
-     cart = Cart.new
-     cart.add_item(grape)
-     cart.add_item(grape)
-     price = cart.buy_this_many_get_that_many(1,1, grape)
+    before(:each) do
+     @grape = Item.new(:grape, 1.00, "each")
+     @discount_cart = Cart.new 
+    end
+
+    xit 'returns the proper price when a single grape is in the cart' do
+    end
+
+    it 'returns the proper price when 2 grapes are in the cart' do
+     @discount_cart.add_item(@grape)
+     @discount_cart.add_item(@grape)
+     byebug
+     price = @discount_cart.buy_this_many_get_that_many(1,1, @grape)
      expect(price).to eq(1.00)
-     expect(cart.count("grape")).to eq(2)
+     expect(@discount_cart.count_item("grape")).to eq(2)
+    end
+
+    it 'returns the proper price when 3 grapes are in the cart' do
+
     end
   end
 
