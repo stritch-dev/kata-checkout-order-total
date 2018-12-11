@@ -14,4 +14,11 @@ describe "BucketOf tests" do
     end
   end
 
+  describe '#add' do 
+    it 'adds a grape to an existing BucketOf' do
+      grape_bucket = BucketOf.new(@grape)
+      grape_bucket.add(1)
+      expect(grape_bucket.count).to eq(2)
+    end
+  end
 end

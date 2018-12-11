@@ -6,4 +6,9 @@ class BucketOf
     @count = 1
   end
 
+  def add(quantity)
+    @count += quantity 
+  end
+
+
 end
