@@ -10,5 +10,9 @@ class BucketOf
     @count += quantity 
   end
 
+  def remove(quantity)
+    @count -= quantity 
+  end
+
 
 end

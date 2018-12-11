@@ -25,7 +25,16 @@ describe "BucketOf tests" do
       grape_bucket = BucketOf.new(@grape)
       grape_bucket.add(2)
       
-      expect(grape_bucket.count).to eq(3)
+    #   expect(grape_bucket.count).to eq(3)
     end
+  end
+
+  describe '#remove' do 
+     it 'removes specified number of item' do 
+      grape_bucket = BucketOf.new(@grape)
+      grape_bucket.add(2)
+      grape_bucket.remove(2)
+      expect(grape_bucket.count).to eq(1)
+     end
   end
 end
